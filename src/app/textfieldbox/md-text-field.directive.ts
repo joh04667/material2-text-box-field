@@ -1,6 +1,9 @@
 import { Directive, ElementRef, QueryList, Query, ViewChild, ViewContainerRef } from '@angular/core';
 import { MdInputContainer } from '@angular/material';
 
+
+
+
 @Directive({
   selector: '[mdTextField]',
   host: { style: 'background-color: rgba(0,0,0,0.06); border-radius: 4px'}
@@ -19,6 +22,9 @@ export class MdTextFieldDirective {
     return this.el.nativeElement.querySelector(selector)
   }
 
+
+  // NOTE: All of this crap is bad practice. I'm just exploring if it's possible to 
+  // create the component with styling alone, and 'saving' styles here to rewrite under classes
   ngAfterViewInit() {
     this.underline = this.getElements('.mat-input-underline');
     this.ripple = this.getElements('.mat-input-ripple');
